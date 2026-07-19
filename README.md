@@ -62,15 +62,7 @@ cd frontend && npm install
 cd ../backend && npm install
 ```
 
-### Environment Variables
 
-Create a `.env` file inside the backend folder.
-
-```env
-MONGO_URL=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-PORT=5000
-```
 
 ### Run Backend
 
@@ -86,9 +78,7 @@ cd frontend
 npm start
 ```
 
-## 📸 Screenshots
 
-Add screenshots of your project here.
 
 ## 📈 Future Improvements
 
