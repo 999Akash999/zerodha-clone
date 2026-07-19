@@ -1,0 +1,12 @@
+.profile-page { min-height: 82vh; display: grid; place-items: center; padding: 80px 24px 40px; background: #f7f9fc; }
+.profile-card { width: min(420px, 100%); padding: 36px; background: #fff; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,.1); text-align: center; }
+.profile-label { margin: 0; color: #777; font-size: .75rem; font-weight: 700; letter-spacing: .12em; }
+.profile-card h1 { margin: 12px 0 6px; color: #333; }
+.profile-card > p { color: #666; }
+.profile-photo { width: 90px; height: 90px; display: grid; place-items: center; overflow: hidden; margin: 16px auto; border: 2px solid #387ed1; border-radius: 50%; background: #eaf2fc; color: #387ed1; font-size: 2rem; font-weight: 700; cursor: pointer; }
+.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+.profile-photo input { display: none; }
+.profile-dashboard, .profile-home, .profile-logout { display: block; width: 100%; box-sizing: border-box; margin-top: 12px; padding: 12px; border-radius: 4px; text-decoration: none; font: inherit; }
+.profile-dashboard { background: #387ed1; color: #fff; }
+.profile-home { border: 1px solid #bbb; color: #444; }
+.profile-logout { border: 0; background: transparent; color: #b42318; cursor: pointer; }

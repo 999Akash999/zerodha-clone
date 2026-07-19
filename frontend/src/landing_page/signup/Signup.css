@@ -1,0 +1,13 @@
+.signup-page { min-height: 82vh; display: grid; place-items: center; padding: 80px 24px 40px; background: #f7f9fc; }
+.signup-card { width: min(420px, 100%); padding: 36px; background: #fff; border-radius: 10px; box-shadow: 0 8px 30px rgba(0, 0, 0, .1); }
+.signup-card h1 { margin: 0 0 8px; color: #333; }
+.signup-card > p { margin: 0 0 24px; color: #666; }
+.signup-card label { display: block; margin: 14px 0 6px; font-size: .9rem; color: #444; }
+.signup-card input, .signup-card button { width: 100%; box-sizing: border-box; padding: 12px; border-radius: 4px; font: inherit; }
+.signup-card input { border: 1px solid #c9c9c9; }
+.signup-card button { margin-top: 22px; border: 0; background: #387ed1; color: #fff; cursor: pointer; }
+.signup-card button:disabled { opacity: .65; cursor: wait; }
+.signup-card .signup-error { margin: 16px 0 0; color: #b42318; }
+.signup-card .signup-success { margin: 16px 0 0; color: #177a3b; }
+.signup-card .signup-login-link { margin: 20px 0 0; text-align: center; font-size: .9rem; }
+.signup-login-link a { color: #387ed1; font-weight: 600; }
