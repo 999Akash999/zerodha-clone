@@ -78,6 +78,20 @@ cd frontend
 npm start
 ```
 
+## Deploy to Render
+
+This repository includes [render.yaml](./render.yaml), which creates three Render services: the API, landing site, and dashboard. Create a **Blueprint** in Render and select this repository.
+
+Before the first deploy, set these environment variables in Render:
+
+- `MONGO_URL` on `zerodha-clone-api` — your MongoDB connection string.
+- `REACT_APP_API_URL` on both static sites — the API URL, for example `https://zerodha-clone-api.onrender.com`.
+- `REACT_APP_DASHBOARD_URL` on the frontend static site — the deployed dashboard URL.
+
+`JWT_SECRET` is generated automatically by the Blueprint. React environment variables are embedded at build time, so redeploy each static site after setting or changing them.
+
+For a backend-only Render deployment, use `backend` as the Root Directory, `npm ci` as the Build Command, and `npm start` as the Start Command. The backend does not require an `npm run build` command.
+
 
 
 ## 📈 Future Improvements

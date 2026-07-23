@@ -13,6 +13,9 @@ const uri=process.env.MONGO_URL;
 const app=express();
 app.use(cors());
 app.use(bodyParser.json());
+app.get("/health", (_req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 app.use((req, res, next) => {
   if (mongoose.connection.readyState !== 1) {
     return res.status(503).json({ message: "Database unavailable. Check the MongoDB connection." });

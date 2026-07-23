@@ -3,6 +3,8 @@ import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
 import { holdings as sampleHoldings } from "../data/Data";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
+
 const Holdings = () => {
   const [allHoldings, setAllHoldings] = useState(sampleHoldings);
   const [isUsingSampleData, setIsUsingSampleData] = useState(false);
@@ -11,7 +13,7 @@ const Holdings = () => {
     let isMounted = true;
 
     axios
-      .get("http://localhost:3002/allHoldings")
+      .get(`${API_URL}/allHoldings`)
       .then((res) => {
         if (isMounted) setAllHoldings(res.data);
       })
