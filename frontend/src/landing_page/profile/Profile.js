@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
 
 function Profile() {
   const navigate = useNavigate();
@@ -30,6 +31,29 @@ function Profile() {
     navigate("/", { replace: true });
   };
 
+  const openDashboard = async (event) => {
+    event.preventDefault();
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      navigate("/Login");
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_URL}/dashboard-login-code`, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message);
+
+      window.location.assign(`${DASHBOARD_URL}?loginCode=${encodeURIComponent(data.code)}`);
+    } catch (error) {
+      window.alert(error.message || "Unable to open the dashboard.");
+    }
+  };
+
   return (
     <main className="profile-page">
       <section className="profile-card">
@@ -40,7 +64,7 @@ function Profile() {
         </label>
         <h1>{user.name || "Zerodha user"}</h1>
         <p>{user.email || "Your account is active"}</p>
-        <a className="profile-dashboard" href={DASHBOARD_URL}>Open dashboard</a>
+        <a className="profile-dashboard" href={DASHBOARD_URL} onClick={openDashboard}>Open dashboard</a>
         <Link className="profile-home" to="/">Back to website</Link>
         <button className="profile-logout" onClick={logout}>Log out</button>
       </section>

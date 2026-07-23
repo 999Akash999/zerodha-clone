@@ -10,6 +10,7 @@ const { OrdersModel } = require("./model/OrdersModel");
 const { UserModel } = require("./model/UserModel");
 const PORT=process.env.PORT || 3002;
 const uri=process.env.MONGO_URL;
+const dashboardLoginCodes = new Map();
 const app=express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -43,6 +44,27 @@ const requireAuth = (req, res, next) => {
     res.status(401).json({ message: "Invalid or expired token" });
   }
 };
+
+app.post("/dashboard-login-code", requireAuth, (req, res) => {
+  const code = require("crypto").randomUUID();
+  dashboardLoginCodes.set(code, {
+    token: req.headers.authorization.split(" ")[1],
+    expiresAt: Date.now() + 60_000,
+  });
+  res.json({ code });
+});
+
+app.post("/dashboard-login-code/exchange", (req, res) => {
+  const { code } = req.body;
+  const login = dashboardLoginCodes.get(code);
+  dashboardLoginCodes.delete(code);
+
+  if (!login || login.expiresAt < Date.now()) {
+    return res.status(401).json({ message: "Dashboard sign-in link has expired. Please try again." });
+  }
+
+  res.json({ token: login.token });
+});
 
 app.post("/signup", async (req, res) => {
   try {
