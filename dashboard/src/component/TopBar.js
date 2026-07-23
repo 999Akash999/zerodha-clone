@@ -3,9 +3,11 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import Menu from "./Menu";
 
+const FRONTEND_URL = process.env.REACT_APP_FRONTEND_URL || "http://localhost:3000";
+
 const TopBar = () => {
   const returnToProfile = () => {
-    window.location.assign("http://localhost:3000/Profile");
+    window.location.assign(`${FRONTEND_URL}/Profile`);
   };
 
   return (

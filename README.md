@@ -87,6 +87,7 @@ Before the first deploy, set these environment variables in Render:
 - `MONGO_URL` on `zerodha-clone-api` — your MongoDB connection string.
 - `REACT_APP_API_URL` on both static sites — the API URL, for example `https://zerodha-clone-api.onrender.com`.
 - `REACT_APP_DASHBOARD_URL` on the frontend static site — the deployed dashboard URL.
+- `REACT_APP_FRONTEND_URL` on the dashboard static site — the deployed frontend URL.
 
 `JWT_SECRET` is generated automatically by the Blueprint. React environment variables are embedded at build time, so redeploy each static site after setting or changing them.
 
