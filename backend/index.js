@@ -13,6 +13,9 @@ const uri=process.env.MONGO_URL;
 const app=express();
 app.use(cors());
 app.use(bodyParser.json());
+app.get("/", (_req, res) => {
+  res.status(200).json({ message: "Zerodha Clone API is running" });
+});
 app.get("/health", (_req, res) => {
   res.status(200).json({ status: "ok" });
 });
