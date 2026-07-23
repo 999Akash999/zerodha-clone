@@ -2,6 +2,9 @@
 
 A full-stack stock trading platform inspired by Zerodha, built using the MERN stack.
 
+Link of this repo project:
+https://zerodha-clone-1-zjom.onrender.com
+
 ## 🚀 Features
 
 - User Authentication (Login/Signup)
