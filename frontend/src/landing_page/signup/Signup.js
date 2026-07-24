@@ -6,7 +6,7 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
 
 function Signup() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", password: "" });
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -52,6 +52,9 @@ function Signup() {
 
           <label htmlFor="email">Email address</label>
           <input id="email" name="email" type="email" value={form.email} onChange={updateField} required />
+
+          <label htmlFor="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" placeholder="10-digit phone number" value={form.phone} onChange={updateField} required />
 
           <label htmlFor="password">Password</label>
           <input id="password" name="password" type="password" minLength="6" value={form.password} onChange={updateField} required />
