@@ -68,16 +68,27 @@ app.post("/dashboard-login-code/exchange", (req, res) => {
 
 app.post("/signup", async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    if (!name || !email || !password) {
-      return res.status(400).json({ message: "Name, email, and password are required" });
+    const { name, email, phone, password } = req.body;
+    if (!name || !email || !phone || !password) {
+      return res.status(400).json({ message: "Name, email, phone, and password are required" });
     }
 
-    const existingUser = await UserModel.findOne({ email: email.toLowerCase() });
-    if (existingUser) return res.status(409).json({ message: "Email is already registered" });
+    // Validate phone number format (10-digit)
+    const phoneRegex = /^[0-9]{10}$/;
+    const cleanPhone = phone.replace(/\D/g, '');
+    if (!phoneRegex.test(cleanPhone)) {
+      return res.status(400).json({ message: "Invalid phone number format. Please provide a 10-digit phone number" });
+    }
 
-    const user = await UserModel.create({ name, email, password });
-    res.status(201).json({ token: createToken(user), user: { name: user.name, email: user.email } });
+    const existingUser = await UserModel.findOne({ 
+      $or: [{ email: email.toLowerCase() }, { phone: cleanPhone }]
+    });
+    if (existingUser) {
+      return res.status(409).json({ message: "Email or phone number is already registered" });
+    }
+
+    const user = await UserModel.create({ name, email: email.toLowerCase(), phone: cleanPhone, password });
+    res.status(201).json({ token: createToken(user), user: { name: user.name, email: user.email, phone: user.phone } });
   } catch (error) {
     console.error("signup failed:", error);
     res.status(500).json({ message: "Unable to create account" });
