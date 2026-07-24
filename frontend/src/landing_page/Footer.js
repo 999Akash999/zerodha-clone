@@ -20,9 +20,9 @@ All rights reserved.</h6>
 </div>
 
                     </div>
-                    <div className='col-2 mb-5 so'>
+                    <div className='col-2  so mb-5'>
                         <h4 >Account</h4>
-                        <a href=''className='Supportdemo text-muted mt-3' >Open demat account</a><br/>
+                        <a href=''className='Supportdemo text-muted ' >Open demat account</a><br/>
                     
                         <a href='' className='Supportdemo text-muted'>Minor demat account</a><br/>
                         <a href='' className='Supportdemo text-muted'>NRI demat account</a><br/>
@@ -68,7 +68,7 @@ All rights reserved.</h6>
 <a href='' className='Supportdemo text-muted'>Gift Nifty</a><br/>
                     </div>
                 </div>
-                <p className='fp text-muted'>Zerodha Broking Ltd.: Member of NSE, BSE, MCX & MSEI – SEBI Registration no.: INZ000031633 CDSL/NSDL: Depository services through Zerodha Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Registered Address: Zerodha Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India. For any complaints pertaining to securities broking please write to complaints@zerodha.com, for DP related to dp@zerodha.com. Please ensure you carefully read the Risk Disclosure Document as prescribed by SEBI | ICF</p>
+                <p className='fp text-muted mt-5'>Zerodha Broking Ltd.: Member of NSE, BSE, MCX & MSEI – SEBI Registration no.: INZ000031633 CDSL/NSDL: Depository services through Zerodha Broking Ltd. – SEBI Registration no.: IN-DP-431-2019 Registered Address: Zerodha Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India. For any complaints pertaining to securities broking please write to complaints@zerodha.com, for DP related to dp@zerodha.com. Please ensure you carefully read the Risk Disclosure Document as prescribed by SEBI | ICF</p>
 
 
                 <p className='fp text-muted'>Procedure to file a complaint on SEBI SCORES: Register on SCORES portal. Mandatory details for filing complaints on SCORES: Name, PAN, Address, Mobile Number, E-mail ID. Benefits: Effective Communication, Speedy redressal of the grievances</p>
